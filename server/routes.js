@@ -23,12 +23,10 @@ router.get('/user', (req, res, next) => {
 
 router.post('/user', (req, res, next) => {
   let newUser = new User(req.body.user)
-  if(req.body.user.email === ""
-    && req.body.user.password === ""
-  || req.body.user.username === "") {
-    console.log('user err , field is empty : ',req.body.user)
+  if (req.body.user.email === '' || req.body.user.password === '' || req.body.user.username === '') {
+    console.log('user err , field is empty : ', req.body.user)
 
-    res.json({success: false, message: 'Please enter email and password.'})
+    res.json({success: false, message: 'Please fill in the fields'})
   } else {
     newUser.save()
       .then(user => {
