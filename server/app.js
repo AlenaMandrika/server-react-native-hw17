@@ -7,6 +7,7 @@ const config = require('./config')
 const user = require('./routes')
 
 require('./db')
+require('./auth')
 
 app.listen(config.port, () => {
   console.log(`Server running at port: ${config.port}`)
